@@ -143,13 +143,14 @@ button {
 .hero-section {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.8fr);
+    grid-template-areas: "copy image";
     gap: 30px;
     margin-bottom: 32px;
     align-items: stretch;
 }
 
 .hero-content {
-    order: 1;
+    grid-area: copy;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -179,7 +180,7 @@ button {
 
 .hero-media {
     position: relative;
-    order: 2;
+    grid-area: image;
     overflow: hidden;
     border: 1px solid #ececec;
     border-bottom: 4px solid #d61e1e;
@@ -423,7 +424,6 @@ button {
 }
 
 @media (max-width: 980px) {
-    .hero-section,
     .content-columns,
     .news-grid,
     .lower-grid {
@@ -464,5 +464,14 @@ button {
 
     .hero-content {
         padding-right: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-section {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "image"
+            "copy";
     }
 }
