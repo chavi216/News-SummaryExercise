@@ -278,3 +278,232 @@ a {
     height: 115px;
     object-fit: contain;
 }
+/* ===== פריסת עמוד החדשות ===== */
+
+body {
+    color: #172c31;
+    background: #fff;
+}
+
+.page-layout {
+    max-width: 1440px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr) 150px;
+    gap: 18px;
+    align-items: start;
+    direction: ltr;
+}
+
+.news-content {
+    min-width: 0;
+    direction: rtl;
+}
+
+/* ===== כתבה ראשית ===== */
+
+.main-article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 18px;
+    min-height: 255px;
+}
+
+.main-article-image {
+    grid-column: 2;
+    grid-row: 1;
+    overflow: hidden;
+}
+
+.main-article-image img {
+    width: 100%;
+    height: 255px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 3px solid #cf001b;
+}
+
+.main-article-text {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 12px 20px;
+    text-align: right;
+}
+
+.main-article-text .label {
+    margin-bottom: 8px;
+}
+
+.main-article-text h1 {
+    font-size: clamp(22px, 2vw, 32px);
+    font-weight: normal;
+    line-height: 1.4;
+    margin: 0 0 12px;
+    color: #111;
+}
+
+.main-article-text p {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.main-article-text small,
+.news-card small {
+    color: #888;
+    font-size: 13px;
+}
+
+/* ===== כרטיסיות הכתבות ===== */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    direction: rtl;
+}
+
+.news-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 12px;
+    align-items: stretch;
+    background: #fff;
+    padding: 16px;
+    min-height: 205px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.news-card img {
+    width: 100%;
+    height: 165px;
+    object-fit: cover;
+    align-self: center;
+    border-bottom: 3px solid #cf001b;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.news-card-text {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.label {
+    display: inline-block;
+    background: #c90020;
+    color: white;
+    padding: 5px 8px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.news-card h2 {
+    font-size: 19px;
+    line-height: 1.35;
+    margin: 8px 0;
+    color: #111;
+    font-weight: bold;
+}
+
+.news-card small {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* ===== פרסומות צדדיות ===== */
+
+.side-ad {
+    width: 100%;
+    direction: rtl;
+}
+
+.ad-box {
+    position: sticky;
+    top: 65px;
+    text-align: center;
+}
+
+.ad-title {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.ad-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===== התאמה למסכים קטנים ===== */
+
+@media (max-width: 1100px) {
+    .page-layout {
+        grid-template-columns: 110px minmax(0, 1fr) 110px;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .news-card {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .news-card h2 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-layout {
+        display: block;
+        margin: 12px auto;
+        padding: 0 12px;
+    }
+
+    .side-ad {
+        display: none;
+    }
+
+    .main-article {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-article-image img {
+        height: 220px;
+    }
+
+    .main-article-text {
+        padding: 15px 0;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-card {
+        min-height: 155px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .news-card img {
+        height: 135px;
+    }
+
+    .news-card h2 {
+        font-size: 17px;
+    }
+}
