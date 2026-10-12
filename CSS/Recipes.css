@@ -520,6 +520,7 @@ a {
         gap: 10px;
         justify-content: center;
     }
+
 }
 
 /* הגדרות כלליות */
@@ -802,3 +803,6 @@ a {
     height: 115px;
     object-fit: contain;
 }
+
+}
+ 
